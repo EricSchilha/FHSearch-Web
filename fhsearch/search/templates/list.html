@@ -1,12 +1,105 @@
-<table>
-    <tr>
-        <th>Field 1</th>
-        ...
-        <th>Field N</th>
-    </tr>
-    {% for item in query_results %}
-    <tr> 
-        <td>{{ item.Name }}</td>
-    </tr>
-    {% endfor %}
-</table>
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body {
+            background-color: #f6f6ff;
+            font-family: Calibri, Myriad;
+        }
+
+        #main {
+            width: 780px;
+            padding: 20px;
+            margin: auto;
+        }
+
+        table.field {
+            margin: auto;
+            width: 600px;
+            border-collapse: collapse;
+            border: 1px solid #fff;
+            border-style: hidden;
+        }
+
+        table.field caption {
+            background-color: #f79646;
+            color: #fff;
+            font-size: x-large;
+            font-weight: bold;
+            letter-spacing: .3em;
+        }
+
+        table.field thead th {
+            padding: 8px;
+            background-color: #fde9d9;
+            font-size: large;
+        }
+
+        table.field thead th#thDay {
+            width: 40%;
+        }
+
+        table.field thead th#thRegular,
+        table.field thead th#thOvertime,
+        table.field thead th#thTotal {
+            width: 20%;
+        }
+
+        table.field th,
+        table.field td {
+            padding: 3px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: #f79646 #ccc;
+        }
+
+        table.field td {
+            text-align: right;
+        }
+
+        table.field tbody th {
+            text-align: left;
+            font-weight: normal;
+        }
+
+        table.field tfoot {
+            font-weight: bold;
+            font-size: large;
+            background-color: #687886;
+            color: #fff;
+        }
+
+        table.field tr.even {
+            background-color: #fde9d9;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <table class="field">
+            <caption>NHL 2019-2020 Season Stats</caption>
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Age</th>
+                    <th>Team</th>
+                    <th>Goals</th>
+                    <th>Assists</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+
+            {% for item in query_results %}
+            <tr>
+                <td>{{ item.player }}</td>
+                <td>{{ item.age }}</td>
+                <td>{{ item.team }}</td>
+                <td>{{ item.goals }}</td>
+                <td>{{ item.assists }}</td>
+                <td>{{ item.points }}</td>
+            </tr>
+            {% endfor %}
+        </table>
