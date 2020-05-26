@@ -10,7 +10,7 @@
         }
 
         #main {
-            width: 780px;
+            width: 1780px;
             padding: 20px;
             margin: auto;
         }
@@ -83,23 +83,101 @@
             <caption>NHL 2019-2020 Season Stats</caption>
             <thead>
                 <tr>
+                    <th>Rank</th>
                     <th>Player</th>
                     <th>Age</th>
                     <th>Team</th>
+                    <th>Position</th>
+                    <th>GP</th>
                     <th>Goals</th>
                     <th>Assists</th>
                     <th>Points</th>
+                    <th>+/-</th>
+                    <th>PIM</th>
+                    <th>Point Shares</th>
+                    <th>EV Goals</th>
+                    <th>PP Goals</th>
+                    <th>SH Goals</th>
+                    <th>GW Goals</th>
+                    <th>EV Assists</th>
+                    <th>PP Goals</th>
+                    <th>SH Goals</th>
+                    <th>Shots</th>
+                    <th>Shooting %</th>
+                    <th>TOI</th>
+                    <th>Average TOI</th>
+                    <th>Blocks</th>
+                    <th>Hits</th>
+                    <th>Faceoff Wins</th>
+                    <th>Faceoff Losses</th>
+                    <th>Faceoff Win %</th>
                 </tr>
             </thead>
 
             {% for item in query_results %}
             <tr>
+                <td>{{ item.rank }}</td>
                 <td>{{ item.player }}</td>
                 <td>{{ item.age }}</td>
                 <td>{{ item.team }}</td>
+                <td>{{ item.position }}</td>
+                <td>{{ item.gamesplayed }}</td>
                 <td>{{ item.goals }}</td>
                 <td>{{ item.assists }}</td>
                 <td>{{ item.points }}</td>
+                <td>{{ item.plusminus }}</td>
+                <td>{{ item.pim }}</td>
+                <td>{{ item.pointshares }}</td>
+                <td>{{ item.evgoals }}</td>
+                <td>{{ item.ppgoals }}</td>
+                <td>{{ item.shgoals }}</td>
+                <td>{{ item.gwgoals }}</td>
+                <td>{{ item.evassists }}</td>
+                <td>{{ item.ppassists }}</td>
+                <td>{{ item.shassists }}</td>
+                <td>{{ item.shots }}</td>
+                <td>{{ item.shootingpercentage }}</td>
+                <td>{{ item.toi }}</td>
+                <td>{{ item.atoi }}</td>
+                <td>{{ item.blocks }}</td>
+                <td>{{ item.hits }}</td>
+                <td>{{ item.faceoffwins }}</td>
+                <td>{{ item.faceofflosses }}</td>
+                <td>{{ item.faceoffwinpercentage }}</td>
             </tr>
             {% endfor %}
         </table>
+<!--
+    CREATE TABLE Stats
+(
+	-- Rank,Player,Age,Team,Position,GP,G,A,PTS,+/-,PIM,PS,EV,PP,SH,GW,EV,PP,SH,S,S%,TOI,ATOI,BLK,HIT,FOW,FOL,FO%
+ Rank integer,
+ Player character varying,
+ Age integer,
+ Team character varying(3),
+ Position character varying(2),
+ GamesPlayed integer,
+ Goals integer,
+ Assists integer,
+ Points integer,
+ PlusMinus integer,
+ PIM integer,
+ PointShares real,
+ EVGoals integer,
+ PPGoals integer,
+ SHGoals integer,
+ GWGoals integer,
+ EVAssists integer,
+ PPAssists integer,
+ SHAssists integer,
+ Shots integer,
+ ShootingPercentage real,
+ TOI integer,
+ ATOI varchar(5),
+ Blocks integer,
+ Hits integer,
+ FaceoffWins integer,
+ FaceoffLosses integer,
+ FaceoffWinPercentage real
+);
+-->
